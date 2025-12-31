@@ -148,6 +148,10 @@
     short: true
     shortscale: 0.9 # Ganimed-Tweak
   #End ADT tweak
+  # Ganimed-Tweak-Start
+  - type: Sprite
+    scale: 0.95, 0.95
+  # Ganimed-Tweak-End
 
 - type: entity
   parent: MobHumanDummy

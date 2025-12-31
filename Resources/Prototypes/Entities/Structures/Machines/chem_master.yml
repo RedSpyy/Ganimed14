@@ -92,6 +92,7 @@
         whitelist:
           tags:
           - Bottle
+          - PillCanister
   - type: SolutionContainerManager
     solutions:
       buffer: {}

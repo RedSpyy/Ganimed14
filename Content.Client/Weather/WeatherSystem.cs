@@ -133,10 +133,10 @@ public sealed class WeatherSystem : SharedWeatherSystem
         // ADT-Tweak-Start: (P4A) Исправление звука погоды в лобби (PORT from DeltaV-Station/Delta-v (2978)
         if (_playerManager.LocalEntity is not { } ent)
             return false;
- 
+
         var map = Transform(uid).MapUid;
         var entMap = Transform(ent).MapUid;
- 
+
         if (map == null || entMap != map)
         {
             weather.Stream = _audio.Stop(weather.Stream);

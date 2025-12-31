@@ -463,9 +463,9 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [трелит]
+  chatMessages: [трель]
   chatTriggers:
-    - трелит
+    - трель
 
 - type: emote
   id: Coos

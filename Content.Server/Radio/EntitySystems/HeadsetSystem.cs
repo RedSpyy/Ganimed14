@@ -5,18 +5,14 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Content.Shared.Radio.EntitySystems;
-using Content.Shared.Verbs; // Ganimed edit
 using Robust.Shared.Network;
 using Robust.Shared.Player;
-using Robust.Shared.Utility; // Ganimed edit
 using Content.Server.ADT.Language;  // ADT Languages
 using Content.Server.Popups; // ADT Radio Block
 using Content.Shared.Cuffs.Components; // ADT Radio Block
 using Content.Shared.StatusEffectNew.Components; // ADT Radio Block
 using Content.Shared.Stunnable; // ADT Radio Block
 using Robust.Shared.Localization; // ADT Radio Block
-using Content.Shared.Popups; // Ganimed edit
-using Robust.Shared.GameObjects; // Ganimed edit
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -37,8 +33,6 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
         SubscribeLocalEvent<WearingHeadsetComponent, EntitySpokeEvent>(OnSpeak);
 
         SubscribeLocalEvent<HeadsetComponent, EmpPulseEvent>(OnEmpPulse);
-
-        SubscribeLocalEvent<HeadsetComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAltVerbs); // Ganimed edit 
     }
 
     // ADT-ADD-Start: (P4A) Блокировка связи при оглушении и наручниках
@@ -188,35 +182,4 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
             args.Disabled = true;
         }
     }
-
-    // Ganimed edit start
-
-    private void OnGetAltVerbs(EntityUid uid, HeadsetComponent comp, GetVerbsEvent<AlternativeVerb> args)
-    {
-        if (!args.CanAccess || !args.CanInteract)
-            return;
-
-        if (comp.RadioTextIncrease <= 0)
-            return;
-
-        var verb = new AlternativeVerb
-        {
-            Act = () =>
-            {
-                comp.RadioBoostEnabled = !comp.RadioBoostEnabled;
-
-                var msg = comp.RadioBoostEnabled
-                    ? Loc.GetString("headset-radio-fontboost-on")
-                    : Loc.GetString("headset-radio-fontboost-off");
-
-                _popup.PopupEntity(msg, args.User, PopupType.Small);
-            },
-            Text = comp.RadioBoostEnabled
-                ? Loc.GetString("headset-radio-fontboost-disable")
-                : Loc.GetString("headset-radio-fontboost-enable"),
-        };
-
-        args.Verbs.Add(verb);
-    }
-    // Ganimed edit end
 }
