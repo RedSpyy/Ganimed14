@@ -833,6 +833,15 @@ ADTPoweredShuttleLightRed: AlwaysPoweredWallLight
 ADTPoweredShuttleLightOrange: AlwaysPoweredWallLight
 ADTPoweredShuttleLightSodium: AlwaysPoweredWallLight
 
+# Ganimed 2025-07-10
+GhostBarSpawner: null
+
+# Ganimed 2025-11-03
+ADTDrinkBeerCanPack: null
+
+# Ganimed 2026-01-04
+ADTClothingNeckShockCollar: ClothingBackpackElectropack
+
 # ADT 2026-01-06
 ADTSpawnMobXenoBurrower: SpawnMobXenoBurrower
 ADTSpawnMobXenoDrone: SpawnMobXenoDrone
