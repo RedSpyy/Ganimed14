@@ -24,6 +24,11 @@ public sealed partial class CentComRandomEventComponent : Component
         {5, 1f},
         {6, 1f},
         {7, 1f},
-        {8, 1f}
+        {8, 1f},
+        // Ganimed-Add-Start
+        {9, 1f},
+        {10, 1f},
+        {11, 1f}
+        // Ganimed-Add-End
     };
 }
