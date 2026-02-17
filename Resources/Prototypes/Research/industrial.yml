@@ -227,7 +227,7 @@
     state: handdrill
   discipline: Industrial
   tier: 2
-  cost: 15000 # ADT-Tweak 12500 -> 1500
+  cost: 15000 # ADT-Tweak 12500 -> 15000
   recipeUnlocks:
     - OreBagOfHolding
     - MiningDrillDiamond
