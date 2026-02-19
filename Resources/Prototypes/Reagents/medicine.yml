@@ -831,7 +831,7 @@
           shouldHave: true
         damage:
           groups:
-            Brute: -12 # ADT-Tweak ## Лечит механические повреждения на 4 (12/3)
+            Brute: -4
           types:
             Bloodloss: -1
       - !type:HealthChange
