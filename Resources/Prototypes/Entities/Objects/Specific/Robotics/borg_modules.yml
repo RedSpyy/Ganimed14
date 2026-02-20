@@ -865,10 +865,9 @@
     - state: medical
     - state: icon-diagnosis
   - type: ItemBorgModule
-    hands: []
-    items:
-    - HandheldHealthAnalyzerUnpowered
-    - ClothingNeckStethoscope
+    hands:
+    - item: HandheldHealthAnalyzerUnpowered
+    - item: ClothingNeckStethoscope
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: diagnosis-module }
   # ADT-Tweak-End
@@ -997,11 +996,10 @@
     - state: medical
     - state: icon-chemist
   - type: ItemBorgModule
-    hands: []
-    items:
-    - HandheldHealthAnalyzerUnpowered
-    - BorgHypo
-    - Syringe
+    hands:
+    - item: HandheldHealthAnalyzerUnpowered
+    - item: BorgHypo
+    - item: Syringe
     # - BorgDropper # ADT start
     # - BorgBeaker
     # - BorgBeaker # ADT end

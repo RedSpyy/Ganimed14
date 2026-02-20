@@ -551,13 +551,6 @@
       raffle:
         settings: short
       job: CBURN
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Medical
-        time: 18000 # 5 hrs Ganimed-RoleTime
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 18000 # 5 hrs Ganimed-RoleTime
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitaryNTSergeants # Ganimed edit (ADTNamesFirstMilitaryRXBZZ (OH GOD, WTF IS RXBZZ))
@@ -606,10 +599,6 @@
       raffle:
         settings: default
       job: CentralCommandOfficial
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Command
-        time: 90000 # 25 hrs Ganimed-RoleTime
     - type: Loadout
       prototypes: [ CentcomGear ]
       roleLoadout: [ RoleSurvivalStandard ]
