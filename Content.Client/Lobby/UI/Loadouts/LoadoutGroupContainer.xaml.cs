@@ -8,6 +8,8 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
+using System.Linq;
 
 namespace Content.Client.Lobby.UI.Loadouts;
 
@@ -77,16 +79,26 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
 
         LoadoutsContainer.RemoveAllChildren();
 
-        // // Corvax-Loadouts-Start
-        // var groupLoadouts = _groupProto.Loadouts;
-        // if (collection.TryResolveType<ISharedLoadoutsManager>(out var loadoutsManager) && _groupProto.ID == "Inventory")
-        // {
-        //     groupLoadouts = loadoutsManager.GetClientPrototypes().Select(id => (ProtoId<LoadoutPrototype>)id).ToList();
-        // }
-        // // Corvax-Loadouts-End
+         // Ganimed sponsor start
+        IEnumerable<ProtoId<LoadoutPrototype>> groupLoadouts = _groupProto.Loadouts;
 
-        // Get all loadout prototypes for this group.
-        // var validProtos = groupLoadouts.Select(id => protoMan.Index(id)); // Corvax-Loadouts-Edit
+        if (_groupProto.ID == "Inventory")
+        {
+            // Для группы Inventory — отображаем только те вещи, что указаны в HTTP API (allowedMarkings).
+            // Это работает даже если игрок не спонсор.
+            string[] allowedItems = Array.Empty<string>();
+
+            if (_sponsorsManager.TryGetInfo(out var sponsor))
+            {
+                allowedItems = sponsor.AllowedMarkings ?? Array.Empty<string>();
+            }
+
+            groupLoadouts = protoMan.EnumeratePrototypes<LoadoutPrototype>()
+                .Where(p => allowedItems.Contains(p.ID))
+                .Select(p => (ProtoId<LoadoutPrototype>)p.ID)
+                .ToList();
+        }
+        // Ganimed sponsor end
 
         // Get all loadout prototypes for this group.
         var validProtos = _groupProto.Loadouts.Select(id => protoMan.Index(id));
@@ -233,6 +245,42 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
 
         var pressed = selected.Any(e => e.Prototype == proto.ID);
 
+        // Ganimed sponsor start
+        // Лоадуты с SponsorOnly допускаются только при наличии разрешения в API
+        if (proto.SponsorOnly)
+        {
+            if (!_sponsorsManager.TryGetInfo(out var sponsor))
+            {
+                var sponsorCont = new LoadoutContainer(proto, true, FormattedMessage.FromUnformatted("Sponsor only"));
+                sponsorCont.Text = loadoutSystem.GetName(proto);
+                sponsorCont.Select.Pressed = false;
+                sponsorCont.Select.OnPressed += args =>
+                {
+                    if (args.Button.Pressed)
+                        OnLoadoutPressed?.Invoke(proto.ID);
+                    else
+                        OnLoadoutUnpressed?.Invoke(proto.ID);
+                };
+                return sponsorCont;
+            }
+
+            if (!sponsor.AllowedMarkings.Contains(proto.ID))
+            {
+                var notAllowedCont = new LoadoutContainer(proto, true, FormattedMessage.FromUnformatted("Not in allowed markings"));
+                notAllowedCont.Text = loadoutSystem.GetName(proto);
+                notAllowedCont.Select.Pressed = false;
+                notAllowedCont.Select.OnPressed += args =>
+                {
+                    if (args.Button.Pressed)
+                        OnLoadoutPressed?.Invoke(proto.ID);
+                    else
+                        OnLoadoutUnpressed?.Invoke(proto.ID);
+                };
+                return notAllowedCont;
+            }
+        }
+        // Ganimed sponsor end
+
         var enabled = loadout.IsValid(profile, session, proto.ID, collection, out var reason);
 
         var cont = new LoadoutContainer(proto, !enabled, reason);
@@ -249,7 +297,6 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
                 OnLoadoutUnpressed?.Invoke(proto.ID);
         };
 
-            LoadoutsContainer.AddChild(loadoutContainer);
-        }
+        return cont;
     }
 }

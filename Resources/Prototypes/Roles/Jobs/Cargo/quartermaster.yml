@@ -10,7 +10,7 @@
       time: 6h # Ganimed-RoleTime
     - !type:RoleTimeRequirement
       role: JobSalvageSpecialist
-      time: 6h  Ganimed-RoleTime
+      time: 6h # Ganimed-RoleTime
     - !type:DepartmentTimeRequirement
       department: Cargo
       time: 20h # Ganimed-RoleTime

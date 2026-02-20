@@ -26,6 +26,7 @@ using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Roles;
 using Content.Shared.Whitelist;
+using Content.Shared._Ganimed.Traits.Assorted; // Ganimed edit Incognito
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -383,7 +384,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
                 ent.Comp.PreSelectedSessions.Add(def, set = new HashSet<ICommonSession>());
             set.Add(session);
             ent.Comp.AssignedSessions.Add(session);
-            
+
             // Corvax-start
             if (def.RoundstartEntity != null && ent.Comp.SelectionTime == AntagSelectionTime.PrePlayerSpawn)
                 antagEnt = Spawn(def.RoundstartEntity);

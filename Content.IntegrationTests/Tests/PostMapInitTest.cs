@@ -511,7 +511,7 @@ namespace Content.IntegrationTests.Tests
             }
             finally
             {
-                if (!pair.IsDead)
+                if (pair.Server.IsAlive && pair.Client.IsAlive)
                     await pair.CleanReturnAsync();
             }
         }

@@ -36,11 +36,10 @@
     - map: [ "ears" ]
     - map: [ "eyes" ]
     - map: [ "id" ]  #Ganimed-Tweak
-    - map: [ "outerClothing" ]  #Ganimed-Tweak    
+    - map: [ "outerClothing" ]  # Ganimed-Tweak
     - map: [ "belt" ]  #Ganimed-Tweak
     - map: [ "neck" ]
     - map: [ "back" ]
-    - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
@@ -363,7 +362,6 @@
     - map: [ "belt" ]
     - map: [ "neck" ]
     - map: [ "back" ]
-    - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]

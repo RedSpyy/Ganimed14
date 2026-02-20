@@ -7,7 +7,7 @@
   playTimeTracker: JobStationAi
   requirements:
   - !type:RoleTimeRequirement
-    department: JobBorg
+    role: JobBorg
     time: 15h # Ganimed-RoleTime
   canBeAntag: false
   icon: JobIconStationAi

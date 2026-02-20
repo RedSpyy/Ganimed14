@@ -49,6 +49,3 @@ trait-hemophilia-name = Гемофилия
 trait-hemophilia-desc = Ваш организм не справляется со свёртыванием крови.
 trait-impaired-mobility-name = Нарушение подвижности
 trait-impaired-mobility-desc = Вам тяжело передвигаться без посторонней помощи.
-
-trait-impaired-mobility-name = Нарушение подвижности
-trait-impaired-mobility-desc = Вам тяжело передвигаться без посторонней помощи.

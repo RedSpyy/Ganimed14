@@ -653,6 +653,7 @@
     - state: cargo
     - state: icon-grappling-gun
   - type: ItemBorgModule
+    hands: []
     items:
     - WeaponGrapplingGun
     - BorgFireExtinguisher
@@ -865,6 +866,7 @@
     - state: medical
     - state: icon-diagnosis
   - type: ItemBorgModule
+    hands: []
     items:
     - HandheldHealthAnalyzerUnpowered
     - ClothingNeckStethoscope
@@ -996,6 +998,7 @@
     - state: medical
     - state: icon-chemist
   - type: ItemBorgModule
+    hands: []
     items:
     - HandheldHealthAnalyzerUnpowered
     - BorgHypo

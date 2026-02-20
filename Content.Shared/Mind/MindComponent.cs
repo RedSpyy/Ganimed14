@@ -127,6 +127,12 @@ public sealed partial class MindComponent : Component
     public const string MindRoleContainerId = "mind_roles";
 
     /// <summary>
+    ///     Container for mind role entities
+    /// </summary>
+    [ViewVariables]
+    public Container MindRoleContainer = default!;
+
+    /// <summary>
     ///     The mind's current antagonist/special role, or lack thereof;
     /// </summary>
     [DataField, AutoNetworkedField]
