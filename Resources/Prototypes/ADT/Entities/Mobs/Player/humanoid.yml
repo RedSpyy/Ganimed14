@@ -206,9 +206,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 36000 # 10h Ganimed-RoleTime
     - type: Loadout
       prototypes: [ ADTERTJanitorGearEVARiot ]
 
@@ -260,10 +257,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Engineering
-        time: 36000 # 10 hrs Ganimed-RoleTime
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitaryNTSpecialistCorporals # Ganimed edit (NamesFirstERTEngineer)
@@ -370,10 +363,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 36000 # 10 hrs Ganimed-RoleTime
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitaryNTSergeants # Ganimed edit (NamesFirstERTMilitary)
@@ -404,10 +393,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 36000 # 10 hrs Ganimed-RoleTime
     - type: Loadout
       prototypes: [ ADTERTSecurityGearEVA ]
 
@@ -429,10 +414,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 36000 # 10 hrs Ganimed-RoleTime
     - type: Loadout
       prototypes: [  ADTERTSecurityGearEVARiot ]
 
@@ -484,10 +465,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Medical
-        time: 36000 # 10 hrs Ganimed-RoleTime
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitaryNTSpecialistCorporals # Ganimed edit (NamesFirstERTMedical)
@@ -518,10 +495,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Medical
-        time: 36000 # 10 hrs Ganimed-RoleTime
     - type: Loadout
       prototypes: [ ADTERTMedicalGearEVA ]
 
@@ -547,10 +520,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Medical
-        time: 36000 # 10 hrs Ganimed-RoleTime
     - type: Loadout
       prototypes: [ ADTERTMedicalGearEVARiot ]
 
@@ -884,7 +853,7 @@
     - BoxSurvivalNitrogen
     - ChemistryBottleNocturine
     - ChemistryBottleNocturine
-  
+
 - type: entity
   name: ADTMobIanHero-name
   parent: MobHuman
@@ -943,7 +912,7 @@
     prototypes: [ADTRoleMobEvilBotGear]
   - type: TTS
     voice: sentrybot
-    
+
 
 - type: startingGear
   id: ADTRoleMobEvilBotGear
