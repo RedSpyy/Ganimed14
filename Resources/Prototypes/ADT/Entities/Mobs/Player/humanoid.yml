@@ -57,13 +57,6 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Command
-        time: 36000 # 10 hrs Ganimed-RoleTime
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 18000 # 5 hrs Ganimed-RoleTime
     - type: Loadout
       prototypes: [ ADTERTLeaderGear ]
     - type: RandomMetadata

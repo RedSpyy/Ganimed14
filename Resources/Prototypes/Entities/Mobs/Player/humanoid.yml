@@ -75,10 +75,6 @@
       rules: ghost-role-information-Death-Squad-rules
       raffle:
         settings: short
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Security
-        time: 36000 # 10 hrs Ganimed-RoleTime
       mindRoles:
       - MindRoleGhostRoleFamiliar
       job: DeathSquad

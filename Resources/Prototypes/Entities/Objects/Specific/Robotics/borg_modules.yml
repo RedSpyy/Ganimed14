@@ -653,12 +653,11 @@
     - state: cargo
     - state: icon-grappling-gun
   - type: ItemBorgModule
-    hands: []
-    items:
-    - WeaponGrapplingGun
-    - BorgFireExtinguisher
-    - BorgHandheldGPSBasic
-    - HandHeldMassScannerBorg
+    hands:
+    - item: WeaponGrapplingGun
+    - item: BorgFireExtinguisher
+    - item: BorgHandheldGPSBasic
+    - item: HandHeldMassScannerBorg
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: grappling-module }
 
