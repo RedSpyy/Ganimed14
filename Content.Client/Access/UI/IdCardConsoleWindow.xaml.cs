@@ -87,27 +87,17 @@ namespace Content.Client.Access.UI
                 JobPresetOptionButton.AddItem(Loc.GetString(job.Name), _jobPrototypeIds.Count - 1);
             }
 
-            // Ganimed edit Start
-            if (_prototypeManager.TryIndex(ExtendedAccessGroupId, out var extendedAccess))
+            SelectAllButton.OnPressed += _ =>
             {
-                _extendedAccessGroup = extendedAccess;
-            }
-            else
-            {
-                _logMill.Error($"Unable to find AccessGroup prototype with ID '{ExtendedAccessGroupId}'");
-                //ActionGiveExtendedAccessButton.Disabled = true;
-            }
+                SetAllAccess(true);
+                SubmitData();
+            };
 
-            if (_prototypeManager.TryIndex(GeneralAccessGroupId, out var generalAccess))
+            DeselectAllButton.OnPressed += _ =>
             {
-                _generalAccessGroup = generalAccess;
-            }
-            else
-            {
-                _logMill.Error($"Unable to find AccessGroup prototype with ID '{GeneralAccessGroupId}'");
-                //ActionGiveGeneralAccessButton.Disabled = true;
-            }
-            // Ganimed edit End
+                SetAllAccess(false);
+                SubmitData();
+            };
 
             JobPresetOptionButton.OnItemSelected += SelectJobPreset;
             _accessButtons.Populate(accessLevels, prototypeManager);
@@ -117,28 +107,15 @@ namespace Content.Client.Access.UI
             {
                 button.OnPressed += _ => SubmitData();
             }
-
-            // Ganimed edit Start
-            ActionGiveFullAccessButton.OnPressed += _ => ActionGiveAllAccess();
-            ActionGiveExtendedAccessButton.OnPressed += _ => AddAccessGroup(_extendedAccessGroup);
-            ActionGiveGeneralAccessButton.OnPressed += _ => AddAccessGroup(_generalAccessGroup);
-            ActionClearAccessButton.OnPressed += _ =>
-            {
-                ClearAllAccess();
-                SubmitData();
-            };
-            ActionSetJobAccessButton.OnPressed += _ => ResetToDefaultJobAccess();
-            // Ganimed edit End
         }
 
-        private void ClearAllAccess()
+        /// <param name="enabled">If true, every individual access button will be pressed. If false, each will be depressed.</param>
+        private void SetAllAccess(bool enabled)
         {
             foreach (var button in _accessButtons.ButtonsList.Values)
             {
-                if (button.Pressed)
-                {
-                    button.Pressed = false;
-                }
+                if (!button.Disabled && button.Pressed != enabled)
+                    button.Pressed = enabled;
             }
         }
 
@@ -152,12 +129,7 @@ namespace Content.Client.Access.UI
             JobTitleLineEdit.Text = Loc.GetString(job.Name);
             args.Button.SelectId(args.Id);
 
-            // Ganimed edit Start
-            SetJobAccess(job);
-
-            // If related code below was changed, then you should also put these changes in SetJobAccess(job).
-            /*
-            ClearAllAccess();
+            SetAllAccess(false);
 
             // this is a sussy way to do this
             foreach (var access in job.Access)
@@ -170,7 +142,7 @@ namespace Content.Client.Access.UI
 
             foreach (var group in job.AccessGroups)
             {
-                if (!_prototypeManager.TryIndex(group, out AccessGroupPrototype? groupPrototype))
+                if (!_prototypeManager.Resolve(group, out AccessGroupPrototype? groupPrototype))
                 {
                     continue;
                 }

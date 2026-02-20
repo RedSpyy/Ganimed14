@@ -40,6 +40,8 @@
     - map: [ "belt" ]  #Ganimed-Tweak
     - map: [ "neck" ]
     - map: [ "back" ]
+    - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -86,6 +88,7 @@
     horizontalRotation: 90
   - type: HumanoidAppearance
     species: Human
+  - type: TypingIndicator
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 0.7
@@ -121,14 +124,12 @@
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
   - type: StatusEffects
     allowed:
     - Stutter
     - Weakness #ADT-Weakness-Tweak
     - Electrocution
-    - Drunk
-    - SlurredSpeech
     - RatvarianLanguage
     - PressureImmunity
     - Muted
@@ -170,6 +171,7 @@
   - type: SleepEmitSound
   - type: SSDIndicator
   - type: StandingState
+  - type: Crawler
   - type: Dna
   - type: MindContainer
     showExamineInfo: true
@@ -184,6 +186,9 @@
     factions:
     - NanoTrasen
   - type: CreamPied
+  - type: ParcelWrapOverride
+    parcelPrototype: WrappedParcelHumanoid
+    wrapDelay: 5
   - type: Stripping
   - type: UserInterface
     interfaces:
@@ -358,6 +363,8 @@
     - map: [ "belt" ]
     - map: [ "neck" ]
     - map: [ "back" ]
+    - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
