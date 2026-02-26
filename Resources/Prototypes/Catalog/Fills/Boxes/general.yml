@@ -53,7 +53,7 @@
       - state: light
   - type: Storage
     grid:
-    - 0,0,5,3
+    - 0,0,3,2 # ADT developer was here
     whitelist:
       components:
       - LightBulb

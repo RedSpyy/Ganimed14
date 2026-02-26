@@ -6,9 +6,9 @@
   description: job-description-station-ai
   playTimeTracker: JobStationAi
   requirements:
-  - !type:RoleTimeRequirement
-    role: JobBorg
-    time: 15h # Ganimed-RoleTime
+  - !type:DepartmentTimeRequirement
+    department: Silicon
+    time: 10h # Ganimed-RoleTime
   canBeAntag: false
   icon: JobIconStationAi
   supervisors: job-supervisors-rd
