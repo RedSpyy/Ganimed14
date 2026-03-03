@@ -1,6 +1,19 @@
+# Ganimed-add-start: two-sided satchels
+- type: entity 
+  abstract: true
+  id: ClothingBackpackSatchelFoldableBase
+  components:
+  - type: Foldable 
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-flip-verb
+    foldVerbText: fold-flip-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: mirrored # don't forget to add the mirrored sprite in rsi for ALL new satchels
+# Ganimed-add-end
+
 - type: entity
   id: ClothingBackpackSatchelCaptainWhite
-  parent: ClothingBackpackSatchel
+  parent: [ClothingBackpackSatchel, ClothingBackpackSatchelFoldableBase] # Ganimed-Tweak (two-sided satchels)
   name: white captain's satchel
   description: Is it your imagination, or is there a stain on it?
   components:
