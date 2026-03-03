@@ -5,8 +5,8 @@
   components:
   - type: Foldable 
     canFoldInsideContainer: true
-    unfoldVerbText: fold-flip-verb
-    foldVerbText: fold-flip-verb
+    unfoldVerbText: holster-unfold-verb-text
+    foldVerbText: holster-fold-verb-text
   - type: FoldableClothing
     foldedEquippedPrefix: mirrored # don't forget to add the mirrored sprite in rsi for ALL new satchels
 # Ganimed-add-end
