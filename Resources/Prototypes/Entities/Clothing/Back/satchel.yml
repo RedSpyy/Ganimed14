@@ -4,6 +4,13 @@
   name: satchel
   description: A trendy looking satchel.
   components:
+  - type: Appearance
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-flip-verb
+    foldVerbText: fold-flip-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: mirrored
   - type: Sprite
     sprite: Clothing/Back/Satchels/satchel.rsi
   - type: Storage
