@@ -164,7 +164,7 @@
               volume: 5
       - trigger:
           !type:DamageTrigger
-          damage: 300
+          damage: 400 # Ganimed-Tweak
         behaviors:
         - !type:PlaySoundBehavior
           sound:
