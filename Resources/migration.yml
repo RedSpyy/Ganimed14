@@ -901,3 +901,11 @@ Bloodpack: ADTBloodPackTransfusionFull
 # Ganimed 2026-01-24 (No roundstart energy dispensers)
 EnergyChemDispenser: ChemDispenser
 EnergyChemDispenserMachineCircuitboard: ChemDispenserMachineCircuitboard
+
+# Ganimed 2026-03-13
+MobArtificialHuman: MobMonkey
+ADTHumanCube: MonkeyCube
+ADTHumanCubeWrapped: MonkeyCubeWrapped
+ADTHumanCubeBox: MonkeyCubeBox
+ADTCubeGondola: MonkeyCube
+ADTPosterContrabandRoza: RandomPosterContraband
