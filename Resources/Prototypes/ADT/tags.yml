@@ -137,6 +137,9 @@
   id: Stomach
 
 - type: Tag
+  id: Storage
+
+- type: Tag
   id: Stunbaton
 
 - type: Tag
@@ -516,6 +519,9 @@
   id: ADTShadekinEmotes
 
 - type: Tag
+  id: ADTVinylSleeveFit
+
+- type: Tag
   id: ADTNovakidEmotes
 
 - type: Tag
@@ -738,6 +744,9 @@
 
 - type: Tag
   id: ADTClosedRadio
+
+- type: Tag
+  id: ADTDrill
 
 - type: Tag
   id: Katana
