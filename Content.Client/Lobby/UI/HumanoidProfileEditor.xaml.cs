@@ -160,6 +160,7 @@ namespace Content.Client.Lobby.UI
             _factory = factory; // ADT SAI Custom
             _controller = UserInterfaceManager.GetUIController<LobbyUIController>();
             _sprite = _entManager.System<SpriteSystem>();
+            _sponsorsManager = IoCManager.Resolve<SponsorsManager>(); // Ganimed sponsor
 
             _maxNameLength = _cfgManager.GetCVar(CCVars.MaxNameLength);
             _allowFlavorText = _cfgManager.GetCVar(CCVars.FlavorText);
@@ -743,7 +744,7 @@ namespace Content.Client.Lobby.UI
                 if (!_prototypeManager.HasIndex(trait.Category))
                     continue;
 
-                if (trait.SponsorOnly && !IoCManager.Resolve<SponsorsManager>().TryGetInfo(out var sponsor))
+                if (trait.SponsorOnly && !_sponsorsManager.TryGetInfo(out var sponsor)) // Ganimed sponsor
                     continue;
                 var group = traitGroups.GetOrNew(trait.Category);
                 group.Add(trait.ID);
@@ -1302,7 +1303,31 @@ namespace Content.Client.Lobby.UI
                 ReloadPreview();
             };
 
-            window.OnLoadoutUnpressed += (loadoutGroup, loadoutProto) =>    // ADT SAI Custom tweaked
+            window.OnLoadoutPressedWithConflict += (loadoutGroup, loadoutProto, conflicts, conflictingGroups) => // Ganimed Sponsor start
+            {
+                var targetGroup = conflictingGroups.Values.First();
+
+                foreach (var conflictProto in conflicts)
+                {
+                    foreach (var (groupId, groupLoadouts) in roleLoadout.SelectedLoadouts)
+                    {
+                        if (groupLoadouts.Any(l => l.Prototype == conflictProto))
+                        {
+                            roleLoadout.RemoveLoadout(groupId, conflictProto, _prototypeManager);
+                            break;
+                        }
+                    }
+                }
+
+                roleLoadout.AddLoadout(targetGroup, loadoutProto, _prototypeManager);
+
+                window.RefreshLoadouts(roleLoadout, session, collection);
+                Profile = Profile?.WithLoadout(roleLoadout);
+                ReloadPreview();
+            };
+
+            window.OnLoadoutUnpressed += (loadoutGroup, loadoutProto) =>
+            // Ganimed Sponsor end
             {
                 roleLoadout.RemoveLoadout(loadoutGroup, loadoutProto, _prototypeManager);
                 window.RefreshLoadouts(roleLoadout, session, collection);   // ADT SAI Custom tweaked
@@ -1928,8 +1953,8 @@ namespace Content.Client.Lobby.UI
 
             try
             {
-                //var sponsorPrototypes = _sponsorsManager.TryGetInfo(out var sponsor) ? sponsor.AllowedMarkings : [];
-                var sponsorPrototypes = Array.Empty<string>(); // TODO: Нужен рефактор спонсорки. Из-за строки выше ломаются импорты персонажей
+                var sponsorPrototypes = _sponsorsManager.TryGetInfo(out var sponsor) ? sponsor.AllowedMarkings : [];
+                //var sponsorPrototypes = Array.Empty<string>(); // TODO: Нужен рефактор спонсорки. Из-за строки выше ломаются импорты персонажей
                 var profile = _entManager.System<HumanoidAppearanceSystem>().FromStream(file, _playerManager.LocalSession!, sponsorPrototypes);
                 var oldProfile = Profile;
                 SetProfile(profile, CharacterSlot);
