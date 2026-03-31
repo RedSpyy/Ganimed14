@@ -39,7 +39,7 @@
     - tatorlight
   name: traitorlight-title
   description: traitorlight-description
-  showInVote: true
+  showInVote: false
   rules:
     - TraitorLightGameRule
     - SubGamemodesRule

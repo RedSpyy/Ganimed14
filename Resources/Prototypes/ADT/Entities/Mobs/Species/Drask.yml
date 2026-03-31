@@ -109,7 +109,7 @@
     baseSprintSpeed : 4.3
   - type: Temperature
     heatDamageThreshold: 313.15 # 40C
-    coldDamageThreshold: -800 # Иммунитет к холоду - не получают урон и алерты
+    coldDamageThreshold: 173.15 # Ganimed-Tweak -100C
     currentTemperature: 273.15
     coldDamage: #per second, scales with temperature & other constants
       groups:
