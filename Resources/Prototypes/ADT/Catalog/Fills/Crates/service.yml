@@ -218,3 +218,4 @@
       weight: 0.6
     - id: ADTVinylSleeveWhite
       weight: 0.6
+      - id: ADTDrinkBeerCanPack
