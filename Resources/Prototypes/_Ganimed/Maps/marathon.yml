@@ -1,7 +1,7 @@
 - type: gameMap
   id: ENT_Marathon
   mapName: 'Marathon Station'
-  mapPath: /Maps/_Ganimed/Stations/ent_marathon.yml
+  mapPath: /Maps/_Ganimed/Stations/marathon.yml
   minPlayers: 12 # Ganimed-Tweak (35 -> 12)
   maxPlayers: 40 # Ganimed-Tweak (60 -> 40)
   stations:

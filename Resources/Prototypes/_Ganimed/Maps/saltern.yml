@@ -1,7 +1,7 @@
 - type: gameMap
   id: ENT_Saltern
   mapName: 'Saltern'
-  mapPath: /Maps/_Ganimed/Stations/ent_saltern.yml
+  mapPath: /Maps/_Ganimed/Stations/saltern.yml
   minPlayers: 8 # Ganimed-Tweak (20 -> 8)
   maxPlayers: 30 # Ganimed-Tweak (35 -> 30)
   fallback: true
