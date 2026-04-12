@@ -1604,7 +1604,7 @@ entities:
       allForFree: True
     - type: Emagged
       emagType: Interaction
-- proto: ADTIconAdventureTime
+- proto: PlushieExperiment
   entities:
   - uid: 32
     components:
