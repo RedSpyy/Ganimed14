@@ -88,6 +88,17 @@
         - type: BurrinessAccent
 
 - type: trait
+  id: NyaAccent
+  name: trait-nya-accent-name
+  description: trait-nya-accent-desc
+  category: SpeechTraits
+  cost: 1
+  effects:
+    - !type:AddCompsEffect
+      components:
+        - type: NyaAccent
+
+- type: trait
   id: PseudobulbarAffect
   name: trait-pseudobulbar-affect-name
   description: trait-pseudobulbar-affect-desc
