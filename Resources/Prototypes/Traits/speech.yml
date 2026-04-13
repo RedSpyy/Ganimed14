@@ -24,6 +24,31 @@
             - type: DamagedSiliconAccent
             - type: ReplacementAccent
               accent: dwarf
+            - type: SouthernAccent
+            - type: PirateAccent
+            - type: ReplacementAccent
+              accent: cowboy
+            - type: GermanAccent
+            - type: ReplacementAccent
+              accent: italian
+            - type: FrenchAccent
+            - type: SpanishAccent
+            - type: ReplacementAccent
+              accent: mobster
+            - type: StutteringAccent
+            - type: FrontalLisp
+            - type: MumbleAccent
+            - type: BackwardsAccent
+            - type: SlurredAccent
+            - type: SickTeethAccent
+            - type: BurrinessAccent
+            - type: BarkAccent
+            - type: MonkeyAccent
+            - type: ParrotAccent
+            - type: RussianAccent
+            - type: ScrambledAccent
+            - type: WeaknessAccent
+            - type: BleatingAccent
 
 # 1 Cost
 
