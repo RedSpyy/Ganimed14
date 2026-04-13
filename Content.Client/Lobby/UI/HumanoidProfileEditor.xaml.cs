@@ -163,6 +163,7 @@ namespace Content.Client.Lobby.UI
             _factory = factory; // ADT SAI Custom
             _controller = UserInterfaceManager.GetUIController<LobbyUIController>();
             _sprite = _entManager.System<SpriteSystem>();
+            _sponsorsManager = IoCManager.Resolve<SponsorsManager>(); // Ganimed sponsor
 
             _maxNameLength = _cfgManager.GetCVar(CCVars.MaxNameLength);
             _allowFlavorText = _cfgManager.GetCVar(CCVars.FlavorText);
