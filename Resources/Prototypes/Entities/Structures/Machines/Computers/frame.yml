@@ -88,9 +88,9 @@
       enum.EdgeConnectionVisuals.ConnectionMask:
         computerLayerBody:
           None: { state: broken, sprite: Structures/Machines/computers.rsi }
-          West: { state: computer_r-broken, sprite: _Ganimed/Structures/Machines/computers.rsi }
-          East: { state: computer_l-broken, sprite: _Ganimed/Structures/Machines/computers.rsi }
-          East, West: { state: computer_l_r-broken, sprite: _Ganimed/Structures/Machines/computers.rsi }
+          West: { state: computer_r-broken, sprite: _Ganimed/Structures/Machines/computers.rsi } # Ganimed-Resprite-Edit
+          East: { state: computer_l-broken, sprite: _Ganimed/Structures/Machines/computers.rsi } # Ganimed-Resprite-Edit
+          East, West: { state: computer_l_r-broken, sprite: _Ganimed/Structures/Machines/computers.rsi } # Ganimed-Resprite-Edit
   # ADT-Tweak end
   - type: Destructible
     thresholds:
