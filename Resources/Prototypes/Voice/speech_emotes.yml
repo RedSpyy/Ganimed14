@@ -563,6 +563,7 @@
   blacklist:
     components:
     - MobIpc
+    - BorgChassis # Ganimed-Add
   #ADT-Tweak-End
   chatMessages: ["chat-emote-msg-deathgasp"]
   chatTriggers:
