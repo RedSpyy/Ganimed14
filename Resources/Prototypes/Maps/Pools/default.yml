@@ -24,14 +24,15 @@
   - ADT_Kerberos
   - ADT_Origin
 # Midpop 35 - 60
-  - ENT_Marathon #Ganimed-Edit
+  - ENT_Marathon # Ganimed-Edit
   - ADT_Meta
   - ADT_Box
   - ADT_Train
 # Lowpop 20 - 35
   - ADT_Bagel
-  - ENT_Saltern #Ganimed-Edit
-  - ENT_Aspid #Ganimed-Edit
+  - ENTCivilStation # Ganimed-Add
+  - ENT_Saltern # Ganimed-Edit
+  - ENT_Aspid # Ganimed-Edit
   - ADT_Cluster
 # Micropop 0 - 20
   - ADT_Reach
