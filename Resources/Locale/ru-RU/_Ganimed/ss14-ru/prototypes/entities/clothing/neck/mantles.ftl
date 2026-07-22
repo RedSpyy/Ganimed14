@@ -1,8 +1,13 @@
+# SPDX-FileCopyrightText: 2023 temporaldarkness <94239354+temporaldarkness@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Hyper B <137433177+HyperB1@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 ent-ClothingNeckMantleCaptainWhite = белая мантия капитана
     .desc = Мантия капитана, с белым пухом.
 
 ent-ClothingNeckMantleBridgeOfficer = мантия офицера командования
-    .desc = Элегантная мантия в черных цветах.
+    .desc = Элегантная мантия в чёрных цветах.
 
 ent-ClothingNeckMantleSecurity = накидка службы безопасности
     .desc = Почётная накидка ветерана службы безопасности.

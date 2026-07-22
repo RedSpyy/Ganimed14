@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 Hyper B <137433177+HyperB1@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Timers
 - type: loadoutEffectGroup
   id: HighRankPilot
@@ -7,6 +11,34 @@
       !type:RoleTimeRequirement
       role: JobPilot
       time: 72000 # 20 hrs
+
+- type: loadoutEffectGroup
+  id: PilotSilverBadgeTimer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 360000 # 100 hrs
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobPilot
+      time: 72000 # 20 hrs
+
+- type: loadoutEffectGroup
+  id: PilotGoldBadgeTimer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 1080000 # 300 hrs
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobPilot
+      time: 216000 # 60 hrs
 
 # Jumpsuit
 - type: loadout
@@ -26,6 +58,28 @@
   # - !type:WhitelistedLoadoutEffect
   - !type:GroupLoadoutEffect
     proto: HighRankPilot
+
+# Neck
+- type: loadout
+  id: PilotBronzeBadge
+  equipment:
+    neck: ClothingNeckSecBadgePilotBronze
+
+- type: loadout
+  id: PilotSilverBadge
+  equipment:
+    neck: ClothingNeckSecBadgePilotSilver
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PilotSilverBadgeTimer
+
+- type: loadout
+  id: PilotGoldBadge
+  equipment:
+    neck: ClothingNeckSecBadgePilotGold
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PilotGoldBadgeTimer
 
 # Outerclothing
 - type: loadout

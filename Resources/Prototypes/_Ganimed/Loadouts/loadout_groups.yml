@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 Hyper B <137433177+HyperB1@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Miscellaneous
 # Spare clothes
 - type: loadoutGroup
@@ -445,7 +449,7 @@
   id: AdjutantHead
   name: loadout-group-adjutant-head
   minLimit: 0
-  loadouts: 
+  loadouts:
   - CommandCap
   - CommandBeret
   - BridgeOfficerBeret
@@ -454,7 +458,7 @@
   id: CommandOfficerNeck
   name: loadout-group-command-officer-neck
   minLimit: 0
-  loadouts: 
+  loadouts:
   - BridgeOfficerMantle
 
 - type: loadoutGroup
@@ -913,17 +917,17 @@
   # - Bandolier
 
 - type: loadoutGroup
-  id: SecurityNeck
+  id: SecurityNeck # Used by senior officer as of now
   name: loadout-group-security-neck
-  minLimit: 0
+  minLimit: 1 # Equip badges by default
   loadouts:
+  - SeniorOfficerBronzeBadge
+  - SeniorOfficerSilverBadge
+  - SeniorOfficerGoldBadge
   - SecurityWhistle
   - SecurityCloak
   - SecurityMantle
   - SecurityBodyCamera
-  - ADTNeckSecBadgeBronze
-  - ADTNeckSecBadgeSilver
-  - ADTNeckSecBadgeGold
   - SecStar
 
 - type: loadoutGroup
@@ -989,6 +993,17 @@
   # - WeaponRevolverR44
   # - WeaponRevolverNY
   # - WeaponRevolverRebota
+
+- type: loadoutGroup
+  id: PilotNeck
+  name: loadout-group-pilot-neck
+  minLimit: 1 # Equip badges by default
+  loadouts:
+  - PilotBronzeBadge
+  - PilotSilverBadge
+  - PilotGoldBadge
+  - SecurityWhistle
+  - SecurityMantle
 
 - type: loadoutGroup
   id: PilotGloves

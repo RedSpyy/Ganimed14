@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 Hyper B <137433177+HyperB1@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Miscellaneous
 loadout-group-spare-clothing = Запасная одежда
 
@@ -100,8 +104,9 @@ loadout-group-detective-gloves = Перчатки криминалиста
 loadout-group-detective-glasses = Очки детектива
 loadout-group-detective-shoes = Обувь детектива
 
+loadout-group-pilot-neck = Шея пилота
 loadout-group-pilot-gloves = Перчатки пилота
-loadout-group-pilot-shoes = Обувь пилота СБ
+loadout-group-pilot-shoes = Обувь пилота
 
 loadout-group-brigmedic-glasses = Очки бригмедика
 

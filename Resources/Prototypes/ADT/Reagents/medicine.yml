@@ -329,7 +329,7 @@
          conditions:
           - !type:ReagentCondition
             reagent: ADTFormalin
-            min: 5
+            min: 10 # Ganimed-Tweak (5 -> 10)
           - !type:MobStateCondition
             mobstate: dead
       - !type:HealthChange
@@ -459,6 +459,18 @@
         visualType: Small
         messages: [ "medicine-effect-usual" ]
         probability: 0.05
+  # Ganimed-Add-Start
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:EvenHealthChange
+        damage:
+          Brute: -0.4
+      - !type:ModifyBleed
+        amount: -0.5
+  # Ganimed-Add-End
+
 #Сульфадиазин серебра
 - type: reagent
   id: ADTSilverSulfadiazine
