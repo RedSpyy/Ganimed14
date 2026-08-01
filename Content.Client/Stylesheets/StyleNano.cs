@@ -15,6 +15,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Graphics;
+using Robust.Shared.Maths;
 using static Robust.Client.UserInterface.StylesheetHelpers;
 
 namespace Content.Client.Stylesheets
@@ -444,6 +445,23 @@ namespace Content.Client.Stylesheets
             };
             whisperBox.SetPatchMargin(StyleBox.Margin.All, 2);
             whisperBox.SetContentMarginOverride(StyleBox.Margin.Horizontal, 7);
+
+            // Ganimed-Edit: separate speech bubbles for emotes (emoteBox) and LOOC (loocBox), issue #283.
+            var emoteBox = new StyleBoxFlat
+            {
+                BackgroundColor = new Color(43, 43, 49, 255),
+                BorderColor = new Color(90, 90, 100, 255),
+                BorderThickness = new Thickness(1),
+            };
+            emoteBox.SetContentMarginOverride(StyleBox.Margin.Horizontal, 7);
+
+            var loocBox = new StyleBoxFlat
+            {
+                BackgroundColor = new Color(27, 27, 31, 255),
+                BorderColor = Color.FromHex("#48d1cc"),
+                BorderThickness = new Thickness(1),
+            };
+            loocBox.SetContentMarginOverride(StyleBox.Margin.Horizontal, 7);
 
             // Placeholder
             var placeholderTexture = resCache.GetTexture("/Textures/Interface/Nano/placeholder.png");
@@ -949,6 +967,17 @@ namespace Content.Client.Stylesheets
                 new StyleRule(new SelectorElement(typeof(PanelContainer), new[] {"speechBox", "whisperBox"}, null, null), new[]
                 {
                     new StyleProperty(PanelContainer.StylePropertyPanel, whisperBox)
+                }),
+
+                // Ganimed-Edit: separate speech bubbles for emotes and LOOC, issue #283.
+                new StyleRule(new SelectorElement(typeof(PanelContainer), new[] {"speechBox", "emoteBox"}, null, null), new[]
+                {
+                    new StyleProperty(PanelContainer.StylePropertyPanel, emoteBox)
+                }),
+
+                new StyleRule(new SelectorElement(typeof(PanelContainer), new[] {"speechBox", "loocBox"}, null, null), new[]
+                {
+                    new StyleProperty(PanelContainer.StylePropertyPanel, loocBox)
                 }),
 
                 new StyleRule(new SelectorChild(
