@@ -81,6 +81,10 @@ public abstract class SharedTypingIndicatorSystem : EntitySystem
         }
 
         SetTypingIndicatorState(uid.Value, ev.State);
+
+        // Ganimed-Edit: store the chat channel so clients can tint the
+        // typing indicator sprite per channel (issue #283).
+        _appearance.SetData(uid.Value, TypingIndicatorVisuals.Channel, ev.Channel);
     }
 
     private void SetTypingIndicatorState(EntityUid uid, TypingIndicatorState state, AppearanceComponent? appearance = null)

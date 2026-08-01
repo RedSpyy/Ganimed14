@@ -28,4 +28,9 @@ public sealed partial class TypingIndicatorPrototype : IPrototype
     [DataField("shader")]
     public string Shader = "shaded";
 
+    // Ganimed-Edit: color of the typing indicator per chat channel,
+    // used to tint the indicator sprite while typing (issue #283).
+    [DataField("colors")]
+    public Dictionary<ChatChannel, Color> Colors = new();
+
 }

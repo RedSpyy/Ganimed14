@@ -1,4 +1,5 @@
 using Content.Shared.CCVar;
+using Content.Shared.Chat;
 using Content.Shared.Chat.TypingIndicator;
 using Robust.Client.Player;
 using Robust.Shared.Configuration;
@@ -18,6 +19,10 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
     private bool _isClientTyping;
     private bool _isClientChatFocused;
 
+    // Ganimed-Edit: chat channel the player is currently typing in,
+    // sent to the server so the indicator can be tinted per channel (issue #283).
+    private ChatChannel _currentChannel;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -25,7 +30,7 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
         Subs.CVar(_cfg, CCVars.ChatShowTypingIndicator, OnShowTypingChanged);
     }
 
-    public void ClientChangedChatText()
+    public void ClientChangedChatText(ChatChannel channel)
     {
         // don't update it if player don't want to show typing indicator
         if (!_cfg.GetCVar(CCVars.ChatShowTypingIndicator))
@@ -33,6 +38,7 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
 
         // client typed something - show typing indicator
         _isClientTyping = true;
+        _currentChannel = channel;
         ClientUpdateTyping();
         _lastTextChange = _time.CurTime;
     }
@@ -48,7 +54,7 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
         ClientUpdateTyping();
     }
 
-    public void ClientChangedChatFocus(bool isFocused)
+    public void ClientChangedChatFocus(bool isFocused, ChatChannel channel)
     {
         // don't update it if player don't want to show typing
         if (!_cfg.GetCVar(CCVars.ChatShowTypingIndicator))
@@ -56,6 +62,8 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
 
         // client submitted text - hide typing indicator
         _isClientChatFocused = isFocused;
+        if (isFocused)
+            _currentChannel = channel;
         ClientUpdateTyping();
     }
 
@@ -90,7 +98,7 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
             state = _isClientTyping ? TypingIndicatorState.Typing : TypingIndicatorState.Idle;
 
         // send a networked event to server
-        RaisePredictiveEvent(new TypingChangedEvent(state));
+        RaisePredictiveEvent(new TypingChangedEvent(state, _currentChannel));
     }
 
     private void OnShowTypingChanged(bool showTyping)
