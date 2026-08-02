@@ -1,4 +1,4 @@
-using Content.Shared.Chat;
+using Content.Shared.Chat; // Ganimed-Add (Typing indicator color based on chat type)
 using Content.Shared.Chat.TypingIndicator;
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;
@@ -42,11 +42,11 @@ public sealed class TypingIndicatorVisualizerSystem : VisualizerSystem<TypingInd
         args.Sprite.LayerSetShader(layer, proto.Shader);
         SpriteSystem.LayerSetOffset((uid, args.Sprite), layer, proto.Offset);
 
-        // Ganimed-Edit: tint the typing indicator sprite per chat channel,
-        // colors come from the typingIndicator prototype (issue #283).
+        // Ganimed-Add-Start (Typing indicator color based on chat type)
         AppearanceSystem.TryGetData<ChatChannel>(uid, TypingIndicatorVisuals.Channel, out var channel);
         var indicatorColor = proto.Colors.TryGetValue(channel, out var channelColor) ? channelColor : Color.White;
         SpriteSystem.LayerSetColor((uid, args.Sprite), layer, indicatorColor);
+        // Ganimed-Add-End
 
         AppearanceSystem.TryGetData<TypingIndicatorState>(uid, TypingIndicatorVisuals.State, out var state);
         SpriteSystem.LayerSetVisible((uid, args.Sprite), layer, state != TypingIndicatorState.None);

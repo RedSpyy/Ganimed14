@@ -286,22 +286,20 @@ public partial class ChatBox : UIWidget
         _controller.UpdateSelectedChannel(this);
 
         // Warn typing indicator about change
-        // Ganimed-Edit: pass the effective channel (prefix overrides selection)
-        // so the typing indicator can be colored per channel (issue #283).
-        var (prefixChannel, _, _) = _controller.SplitInputContents(ChatInput.Input.Text);
-        _controller.NotifyChatTextChange((ChatChannel)(prefixChannel == ChatSelectChannel.None ? SelectedChannel : prefixChannel));
+        var (prefixChannel, _, _) = _controller.SplitInputContents(ChatInput.Input.Text); // Ganimed-Add (Typing indicator color based on chat type)
+        _controller.NotifyChatTextChange((ChatChannel)(prefixChannel == ChatSelectChannel.None ? SelectedChannel : prefixChannel)); // Ganimed-Edit (Added (ChatChannel)(prefixChannel == ChatSelectChannel.None ? SelectedChannel : prefixChannel))
     }
 
     private void OnFocusEnter(LineEditEventArgs args)
     {
         // Warn typing indicator about focus
-        _controller.NotifyChatFocus(true, (ChatChannel)SelectedChannel);
+        _controller.NotifyChatFocus(true, (ChatChannel)SelectedChannel); // Ganimed-Edit: Typing indicator color based on chat type (Added (ChatChannel)SelectedChannel)
     }
 
     private void OnFocusExit(LineEditEventArgs args)
     {
         // Warn typing indicator about focus
-        _controller.NotifyChatFocus(false, (ChatChannel)SelectedChannel);
+        _controller.NotifyChatFocus(false, (ChatChannel)SelectedChannel); // Ganimed-Edit: Typing indicator color based on chat type (Added (ChatChannel)SelectedChannel)
     }
 
     protected override void Dispose(bool disposing)
