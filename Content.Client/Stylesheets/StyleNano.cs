@@ -26,6 +26,7 @@ namespace Content.Client.Stylesheets
         {
             var ds = display ? "Display" : "";
             var sv = variation.StartsWith("Bold", StringComparison.Ordinal) ? "Bold" : "Regular";
+            var jv = variation.StartsWith("Bold", StringComparison.Ordinal) ? "Bold" : "Regular"; // Ganimed-Add (Japanese support)
             return resCache.GetFont
             (
                 // Ew, but ok
@@ -33,7 +34,8 @@ namespace Content.Client.Stylesheets
                 {
                     $"/Fonts/NotoSans{ds}/NotoSans{ds}-{variation}.ttf",
                     $"/Fonts/NotoSans/NotoSansSymbols-{sv}.ttf",
-                    "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf"
+                    "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf",
+                    $"/Fonts/NotoSansJP/NotoSansJP-{jv}.otf" // Ganimed-Add (Japanese support)
                 },
                 size
             );
