@@ -9,10 +9,8 @@ public sealed partial class MapTextComponent : SharedMapTextComponent
     /// <summary>
     /// The font that gets cached on component init or state changes
     /// </summary>
-    /// <remarks>Ganimed-Edit: Font instead of VectorFont so a StackedFont with
-    /// Japanese fallback can be cached here.</remarks>
     [ViewVariables]
-    public Font? CachedFont;
+    public Font? CachedFont; // Ganimed-Edit: Japanese support (VectorFont -> Font)
 
     /// <summary>
     /// The text currently being displayed. This is either <see cref="SharedMapTextComponent.Text"/> or the

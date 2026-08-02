@@ -114,8 +114,6 @@ public sealed class ToggleableFontTag : IMarkupTag
         if (!prototypeManager.TryIndex<FontPrototype>(fontId, out var prototype))
             prototype = prototypeManager.Index<FontPrototype>(DefaultFont);
 
-        // Ganimed-Edit: Japanese fallback so chat messages (e.g. collective mind)
-        // render kana/kanji instead of tofu boxes.
-        return Content.Client._Ganimed.Fonts.GanimedFontStack.WithJapaneseFallback(cache, prototype, size);
+        return Content.Client._Ganimed.Fonts.GanimedFontStack.WithJapaneseFallback(cache, prototype, size); // Ganimed-Add (Japanese support)
     }
 }
